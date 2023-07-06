@@ -4,7 +4,7 @@ const { DataTypes } = require('sequelize')
 const tables = db.define(
 	'tables',
 	{
-		cod: {
+		id: {
 			type: DataTypes.INTEGER,
 			primaryKey: true,
 			autoIncrement: true,
@@ -22,7 +22,7 @@ const tables = db.define(
 			type: DataTypes.STRING,
 			model: 'restaurants',
 			hey: 'id',
-		},
+		}
 	},
 	{
 		timestamps: false,

@@ -13,8 +13,13 @@ const items = db.define('items', {
 	},
 	price: {
 		type: DataTypes.DECIMAL,
-		defaultValue: null
-	}
+		defaultValue: null,
+	},
+	restaurant: {
+		type: DataTypes.STRING,
+		model: 'restaurants',
+		hey: 'id',
+	},
 })
 
 module.exports = items
