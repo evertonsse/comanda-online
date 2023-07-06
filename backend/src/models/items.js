@@ -15,10 +15,16 @@ const items = db.define('items', {
 		type: DataTypes.DECIMAL,
 		defaultValue: null,
 	},
+	preparationTime: {
+		type: DataTypes.INTEGER,
+		defaultValue: 0,
+	},
 	restaurant: {
 		type: DataTypes.STRING,
-		model: 'restaurants',
-		hey: 'id',
+		references: {
+			model: 'restaurants',
+			key: 'id',
+		},
 	},
 })
 
