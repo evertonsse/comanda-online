@@ -22,7 +22,7 @@ const commands = db.define(
 			hey: 'id',
 		},
 		total: {
-			type: DataTypes.DECIMAL(16, 5),
+			type: DataTypes.DECIMAL(10,2),
 			defaultValue: 0,
 		},
 	},

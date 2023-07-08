@@ -12,7 +12,7 @@ const items = db.define('items', {
 		allowNull: false,
 	},
 	price: {
-		type: DataTypes.DECIMAL,
+		type: DataTypes.DECIMAL(10,2),
 		defaultValue: null,
 	},
 	preparationTime: {
@@ -26,6 +26,8 @@ const items = db.define('items', {
 			key: 'id',
 		},
 	},
+}, {
+	timestamps: false,
 })
 
 module.exports = items
