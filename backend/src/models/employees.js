@@ -7,7 +7,16 @@ module.exports = db.define('employees', {
 		primaryKey: true,
 		autoIncrement: true,
 	},
-    name : {
-        
-    }
+	name: {
+		type: DataTypes.STRING,
+		allowNull: false,
+	},
+	email: { 
+		type: DataTypes.STRING, 
+		llowNull: false 
+	},
+	pass: { 
+		type: DataTypes.STRING,
+		allowNull: false
+	}
 })
