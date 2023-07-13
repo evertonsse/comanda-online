@@ -1,31 +1,12 @@
-const crypto = require('crypto')
-const algorithm = 'aes-256-cbc'
+const CryptoJS = require('crypto-js')
 
 module.exports = {
 	crypt(text, key) {
-		const iv = crypto.randomBytes(16)
-		let cipher = crypto.createCipheriv(algorithm, Buffer.from(key), iv)
-		let encrypted = cipher.update(text)
-		encrypted = Buffer.concat([encrypted, cipher.final()])
-		return {
-			iv: iv.toString('hex'),
-			encryptedData: encrypted.toString('hex'),
-		}
+		
+		return CryptoJS.AES.encrypt(text, key).toString()
 	},
 
 	decrypt(text, key) {
-		let iv = Buffer.from(text.iv, 'hex')
-		let encryptedText = Buffer.from(text.encryptedData, 'hex')
-
-		let decipher = crypto.createDecipheriv(
-			algorithm,
-			Buffer.from(key),
-			iv
-		)
-
-		let decrypted = decipher.update(encryptedText)
-		decrypted = Buffer.concat([decrypted, decipher.final()])
-
-		return decrypted.toString()
+		return CryptoJS.AES.decrypt(text, key).toString(CryptoJS.enc.Utf8)
 	},
 }
