@@ -5,7 +5,6 @@ import { FiLogIn } from 'react-icons/fi'
 import restaurantImg from '../../assets/restaurant.png'
 import './styles.css'
 import api from '../../api/api.js'
-
 export default function Logon() {
 	const [email, setEmail] = useState('')
 	const [pass, setPass] = useState('')
@@ -16,9 +15,9 @@ export default function Logon() {
 		try {
 			const response = await api.post('/login', { email, pass })
 			console.log(response)
-			
-			localStorage.setItem('userId', response.data[0].id)
-			localStorage.setItem('userName', response.data[0].name)
+
+			localStorage.setItem('token', response.data[0].token)
+			localStorage.setItem('email', response.data[0].email)
 			navigate('/home')
 		} catch (error) {
 			console.log(error)
@@ -47,6 +46,7 @@ export default function Logon() {
 					<button className="button validate" type="submit">
 						Entrar
 					</button>
+					
 					<Link className="back-link" to="/user/create">
 						<FiLogIn size={16} color="#1976D2" />
 						Não tenho cadastro
